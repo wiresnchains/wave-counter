@@ -20,10 +20,12 @@ catch (err) {
     console.error("Failed to mount app due to", err);
 }
 
+const count = store.get("count");
+
 function increment(amount) {
-    store.setValue("count", store.getValue("count") + amount);
+    count.update(count.getValue() + amount);
 }
 
 function reset() {
-    store.setValue("count", 0);
+    count.update(count.initialValue);
 }
